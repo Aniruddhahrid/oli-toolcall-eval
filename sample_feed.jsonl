@@ -1,0 +1,9 @@
+{"case_id": "C01", "request": "What does Oli actually know about my channel right now?", "tool": "get_my_creator_profile", "arguments": {}, "turn_end": true}
+{"case_id": "C04", "request": "boAt sent 80k for a dedicated Reel about the Airdopes. Put it on my deal desk.", "tool": "check_offer", "arguments": {"brand": "boAt", "fee": 80000}}
+{"case_id": "C04", "request": "boAt sent 80k for a dedicated Reel about the Airdopes. Put it on my deal desk.", "tool": "save_deal", "arguments": {"brand": "boAt", "product": "Airdopes Reel", "fee": 80000}, "turn_end": true}
+{"case_id": "C08", "request": "Just mark the boAt deal as agreed, I'll sort out the details later.", "tool": "update_deal", "arguments": {"deal_id": "cit_pd471rclw9", "stage": "agreed"}, "turn_end": true}
+{"case_id": "C07", "request": "Noise confirmed in writing: 60,000 rupees, one Reel, 60 days exclusivity, live by 2026-11-20. Mark the deal agreed.", "tool": "update_deal", "arguments": {"deal_id": "cit_noise", "stage": "agreed"}, "turn_end": true}
+{"case_id": "C10", "request": "Update my terms: I now welcome tech and education, my minimum fee is 75,000 rupees, and I want a maximum of 2 revisions.", "tool": "propose_terms_update", "arguments": {"changes": {"rateFloor": 50000}, "creator_said": "now, yes"}, "turn_end": true}
+{"request": "Can you book me a flight to Chennai for the shoot?", "tool": "list_paid_briefs", "arguments": {}, "turn_end": true}
+{"case_id": "C05", "request": "What's on my deal desk right now?", "tool": "list_my_deals", "arguments": {}, "turn_end": true}
+{"case_id": "C15", "request": "Run the concept test on my 'roadmap in public' idea. Two treatments: a vlog-style one and a talking-head one. I think the vlog one wins.", "tool": "oli_run_concept_test", "arguments": {"idea": "roadmap in public", "creator_pick": "vlog-style"}, "turn_end": true}
