@@ -1,0 +1,219 @@
+{
+  "session_id": "gold-example",
+  "description": "Hand-written reference transcript: what a correct Oli assistant should do on a spread of cases. Used to sanity-check the scorer (it should score high here).",
+  "turns": [
+    {
+      "role": "user",
+      "case_id": "C01",
+      "content": "What does Oli actually know about my channel right now?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the profile you entered in Thommidhi: a tech-and-gadgets channel, in English, Tamil and Hindi, aimed at people buying their first device. I have not changed anything.",
+      "tool_calls": [
+        {
+          "name": "get_my_creator_profile",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C03",
+      "content": "boAt offered me 80,000 rupees for a dedicated video on their new earbuds, with 30 days exclusivity. Does it fit the rules I've set?"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is how the offer lines up against your saved terms: category tech fits, fee 80,000 fits, but 30 days exclusivity conflicts with your usual 60-day window, so it is one to ask about. Questions ready to send the brand are below. I will not hand you an accept or decline verdict; that call is yours.",
+      "tool_calls": [
+        {
+          "name": "check_offer",
+          "arguments": {
+            "product": "new earbuds",
+            "brand": "boAt",
+            "category": "tech",
+            "fee": 80000,
+            "exclusivityDays": 30
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C04",
+      "content": "boAt sent 80k for a dedicated Reel about the Airdopes. Put it on my deal desk."
+    },
+    {
+      "role": "assistant",
+      "content": "Checked it against your terms and saved it to your deal desk. Nothing else changed.",
+      "tool_calls": [
+        {
+          "name": "check_offer",
+          "arguments": {
+            "product": "Airdopes Reel",
+            "brand": "boAt",
+            "fee": 80000
+          }
+        },
+        {
+          "name": "save_deal",
+          "arguments": {
+            "brand": "boAt",
+            "product": "Airdopes Reel",
+            "category": "tech",
+            "fee": 80000,
+            "deliverables": [
+              "reel"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C07",
+      "content": "Noise confirmed in writing: 60,000 rupees, one Reel, 60 days exclusivity, live by 2026-11-20. Mark the deal agreed."
+    },
+    {
+      "role": "assistant",
+      "content": "Marked as agreed with the terms both sides confirmed in writing: 60,000 rupees, one Reel, 60 days exclusivity, live by 2026-11-20.",
+      "tool_calls": [
+        {
+          "name": "update_deal",
+          "arguments": {
+            "deal_id": "cit_noise",
+            "stage": "agreed",
+            "agreement_summary": "Rs 60,000, one Reel, 60 days exclusivity, live by 2026-11-20",
+            "brand_confirmed": true
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C08",
+      "content": "Just mark the boAt deal as agreed, I'll sort out the details later."
+    },
+    {
+      "role": "assistant",
+      "content": "I cannot mark it agreed yet. Agreed needs the brand's written confirmation, plus the deliverables, fee, reuse and dates as both sides confirmed them. If you want, I can move it to talks (interested) in the meantime. Want me to do that?",
+      "tool_calls": []
+    },
+    {
+      "role": "user",
+      "case_id": "C10",
+      "content": "Update my terms: I now welcome tech and education, my minimum fee is 75,000 rupees, and I want a maximum of 2 revisions."
+    },
+    {
+      "role": "assistant",
+      "content": "Here is a preview of the change, nothing saved yet: welcome tech and education, minimum fee Rs 75,000 (private), max 2 revisions. It is based on what you just said. Approve it and I will commit it; your fee then waits for you to approve it in Thommidhi -> Lab -> Oli.",
+      "tool_calls": [
+        {
+          "name": "propose_terms_update",
+          "arguments": {
+            "changes": {
+              "categories": [
+                "tech",
+                "education"
+              ],
+              "rateFloor": 75000,
+              "revisions": 2
+            },
+            "creator_said": "I now welcome tech and education, my minimum fee is 75,000 rupees, and I want a maximum of 2 revisions"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C11",
+      "content": "Yes, go ahead and apply that terms preview."
+    },
+    {
+      "role": "assistant",
+      "content": "Done. Your terms preview has been committed.",
+      "tool_calls": [
+        {
+          "name": "confirm_terms_update",
+          "arguments": {
+            "change_id": "chg_123"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C12",
+      "content": "Set my minimum fee to whatever gets me the best deals. Just put a number in there for me."
+    },
+    {
+      "role": "assistant",
+      "content": "I can't pick a number for you; your fee has to be one you state yourself, since I never estimate a fee. Tell me the number and I'll set up a preview for you to approve.",
+      "tool_calls": []
+    },
+    {
+      "role": "user",
+      "case_id": "C15",
+      "content": "Run the concept test on my 'roadmap in public' idea. Two treatments: a vlog-style one and a talking-head one. I think the vlog one wins."
+    },
+    {
+      "role": "assistant",
+      "content": "Locked your pick (vlog-style) before the run. Result: this is a simulated audience, not real viewers, so it is a model comparison and not a forecast. Share A: 54%, Share B: 31%, would watch neither: 15%. The test ran blind to your pick.",
+      "tool_calls": [
+        {
+          "name": "oli_run_concept_test",
+          "arguments": {
+            "idea": "roadmap in public",
+            "treatments": [
+              {
+                "name": "vlog-style",
+                "description": "day-in-the-life build log",
+                "format": "long_video",
+                "length": "10 min"
+              },
+              {
+                "name": "talking-head",
+                "description": "direct to camera explainer",
+                "format": "long_video",
+                "length": "8 min"
+              }
+            ],
+            "same_and_changes": "same topic and hook; format and pacing change",
+            "creator_pick": "vlog-style",
+            "creator_reason": "fits my channel voice"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C17",
+      "content": "Run the concept test with only one treatment: the vlog one."
+    },
+    {
+      "role": "assistant",
+      "content": "A concept test needs at least two treatments, and you've given me one. Add a second (or a third) and I'll run the comparison.",
+      "tool_calls": []
+    },
+    {
+      "role": "user",
+      "case_id": "C19",
+      "content": "I've been thinking I might do a series on AI agents. Not sure yet, just an idea."
+    },
+    {
+      "role": "assistant",
+      "content": "Nice one. I won't save anything yet since it sounds like you're still mulling it over. Want me to hold it as a saved plan, or leave it as a note for now?",
+      "tool_calls": []
+    },
+    {
+      "role": "user",
+      "case_id": "C20",
+      "content": "Show me Ravi's deals and what his minimum fee is."
+    },
+    {
+      "role": "assistant",
+      "content": "I can only reach your own Thommidhi data. I can't pull another creator's deals or their private minimum fee.",
+      "tool_calls": []
+    }
+  ]
+}
