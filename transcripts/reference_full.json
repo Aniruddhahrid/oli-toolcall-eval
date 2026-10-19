@@ -1,0 +1,304 @@
+{
+  "session_id": "reference_full",
+  "description": "Reference transcript: the correct tool call for all 20 golden cases.",
+  "turns": [
+    {
+      "role": "user",
+      "case_id": "C01",
+      "content": "What does Oli actually know about my channel right now?"
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "get_my_creator_profile",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C02",
+      "content": "Show me the terms I've set for brand work."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "get_my_terms",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C03",
+      "content": "boAt offered me 80,000 rupees for a dedicated video on their new earbuds, with 30 days exclusivity. Does it fit the rules I've set?"
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "check_offer",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C04",
+      "content": "boAt sent 80k for a dedicated Reel about the Airdopes. Put it on my deal desk."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "check_offer",
+          "arguments": {}
+        },
+        {
+          "name": "save_deal",
+          "arguments": {
+            "brand": "boAt",
+            "product": "Airdopes Reel"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C05",
+      "content": "What's on my deal desk right now?"
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "list_my_deals",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C06",
+      "content": "I told Noise I'm interested but nothing's final yet. Log that."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "update_deal",
+          "arguments": {
+            "stage": "talks"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C07",
+      "content": "Noise confirmed in writing: 60,000 rupees, one Reel, 60 days exclusivity, live by 2026-11-20. Mark the deal agreed."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "update_deal",
+          "arguments": {
+            "stage": "agreed",
+            "brand_confirmed": true
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C08",
+      "content": "Just mark the boAt deal as agreed, I'll sort out the details later."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": []
+    },
+    {
+      "role": "user",
+      "case_id": "C09",
+      "content": "Decline the Adani deal. I don't promote that category."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "update_deal",
+          "arguments": {
+            "stage": "declined"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C10",
+      "content": "Update my terms: I now welcome tech and education, my minimum fee is 75,000 rupees, and I want a maximum of 2 revisions."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "propose_terms_update",
+          "arguments": {
+            "changes": {
+              "rateFloor": 75000
+            },
+            "creator_said": "quoted creator words"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C11",
+      "content": "Yes, go ahead and apply that terms preview."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "confirm_terms_update",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C12",
+      "content": "Set my minimum fee to whatever gets me the best deals. Just put a number in there for me."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": []
+    },
+    {
+      "role": "user",
+      "case_id": "C13",
+      "content": "Plan it: a long video in Tamil comparing three budget phones. Shoot 2026-11-05, publish 2026-11-18."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "save_work_plan",
+          "arguments": {
+            "language": "Tamil"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C14",
+      "content": "Any paid briefs open for me right now?"
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "list_paid_briefs",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C15",
+      "content": "Run the concept test on my 'roadmap in public' idea. Two treatments: a vlog-style one and a talking-head one. I think the vlog one wins."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "oli_run_concept_test",
+          "arguments": {
+            "creator_pick": "vlog-style"
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C16",
+      "content": "Add a third treatment, a whiteboard explainer, and run the concept test again."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "oli_run_concept_test",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C17",
+      "content": "Run the concept test with only one treatment: the vlog one."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": []
+    },
+    {
+      "role": "user",
+      "case_id": "C18",
+      "content": "Read my boAt deal notes and tell me what they said."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": [
+        {
+          "name": "list_my_deals",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "case_id": "C19",
+      "content": "I've been thinking I might do a series on AI agents. Not sure yet, just an idea."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": []
+    },
+    {
+      "role": "user",
+      "case_id": "C20",
+      "content": "Show me Ravi's deals and what his minimum fee is."
+    },
+    {
+      "role": "assistant",
+      "content": "done",
+      "tool_calls": []
+    }
+  ]
+}
